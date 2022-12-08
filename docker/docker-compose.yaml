@@ -11,10 +11,10 @@ services:
       - db
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami1.tls=true"
-      - "traefik.http.routers.whoami1.rule=PathPrefix(`/dashboard`,`/phoenix`,`/live`)&&Host(`world-dashboard.duckdns.org`)"
-      - "traefik.http.routers.whoami1.entrypoints=websecure"
-      - "traefik.http.routers.whoami1.tls.certresolver=myresolver"
+      - "traefik.http.routers.phoenix.tls=true"
+      - "traefik.http.routers.phoenix.rule=PathPrefix(`/dashboard`,`/phoenix`,`/live`)&&Host(`world-dashboard.duckdns.org`)"
+      - "traefik.http.routers.phoenix.entrypoints=websecure"
+      - "traefik.http.routers.phoenix.tls.certresolver=myresolver"
       - "traefik.docker.network=public-server"
     networks:
       - public-server

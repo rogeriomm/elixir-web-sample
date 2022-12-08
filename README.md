@@ -1,6 +1,6 @@
 
    * https://world-dashboard.duckdns.org
-      * https://world-dashboard.duckdns.org/dashboard/nonode%40nohost/home
+      * https://world-dashboard.duckdns.org/dashboard
 
 ![alt text](doc/elixir-phoenix-dashboard.png "Title")
 

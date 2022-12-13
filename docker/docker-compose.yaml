@@ -14,13 +14,14 @@ services:
       - "traefik.http.routers.phoenix.tls=true"
       - "traefik.http.routers.phoenix.rule=PathPrefix(`/dashboard`,`/phoenix`,`/live`)&&Host(`world-dashboard.duckdns.org`)"
       - "traefik.http.routers.phoenix.entrypoints=websecure"
+      - "traefik.http.routers.phoenix.middlewares=basic-auth@file"
       - "traefik.http.routers.phoenix.tls.certresolver=myresolver"
       - "traefik.docker.network=public-server"
     networks:
       - public-server
 
   db:
-    image: postgres:9.6
+    image: postgres:14.6
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres

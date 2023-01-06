@@ -1,14 +1,15 @@
 FROM elixir:latest
 
-ENV VERSION=v18.12.1
+ENV VERSION=v18.13.0
 #ENV DISTRO=linux-x64
-ENV DISTRO=linux-armv7l
+ENV DISTRO=linux-arm64
+#ENV DISTRO=linux-armv7l
 
 RUN apt-get update && \
     apt-get install -y postgresql-client && \
     apt-get install -y inotify-tools
 
-RUN wget https://nodejs.org/dist/v18.12.1/node-$VERSION-$DISTRO.tar.xz -O /tmp/node.xz  && \
+RUN wget https://nodejs.org/dist/$VERSION/node-$VERSION-$DISTRO.tar.xz -O /tmp/node.xz  && \
     mkdir -p /usr/local/lib/nodejs && \
     tar -xJvf /tmp/node.xz -C /usr/local/lib/nodejs
 
@@ -25,6 +26,3 @@ RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
 CMD ["mix", "phx.server"]
-
-
-
